@@ -1,4 +1,4 @@
-import { PostList } from './components/PostList/PostList';
+import { PostList } from './components/PostList';
 import './App.scss';
 
 import postsFromServer from './api/posts.json';
@@ -8,7 +8,7 @@ import usersFromServer from './api/users.json';
 const posts = postsFromServer.map(post => ({
   ...post,
   user: usersFromServer.filter(user => user.id === post.userId)[0],
-  comments: commentsFromServer.filter(coment => coment.postId === post.id),
+  comments: commentsFromServer.filter(comment => comment.postId === post.id),
 }));
 
 export const App = () => (
